@@ -11,6 +11,7 @@ It is written in C++ utilizing SDL2 software development library.
 ## Game Controls
 * Move snake with arrow keys
 * Pause the game by pressing [esc] - press any of the arrow keys to resume gameplay
+* Quit the game by pressing [q]
 
 
 ## Prerequisites
