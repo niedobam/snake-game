@@ -1,5 +1,5 @@
 # snake-game
-![Screenshot from 2023-05-01 10-15-58](https://user-images.githubusercontent.com/127039716/235428066-b32ae457-19e1-4a5b-9846-e61941157d1b.png)
+![snake-picture2](https://user-images.githubusercontent.com/127039716/235454535-621cb119-1bcd-45ab-9ea4-76fe6108ced6.png)
 
 
 ## General Information
