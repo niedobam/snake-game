@@ -34,7 +34,7 @@ It is written in C++ utilizing SDL2 software development library.
   ```bash
   make
   ```
-  ### Run game
+  ### Run the game
   ```bash
   ./snake-game
   ```
