@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // Helper variables
     Uint32 start;
     Uint32 elapsedTime;
-    int bestRoundScore;
+    int bestRoundScore = 0;
     bool gameRunning = true;
     bool exitGame = false;
 
