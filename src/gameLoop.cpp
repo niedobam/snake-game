@@ -167,13 +167,13 @@ void gameLoop::updateSnakePosition(player *player, food *food)
         player->ySnakePositions.push_back(player->yPrevious);
 
         // Find food spawn that is different that any snake tail positions
-        int xFoodCoordinateCandidate = (rand() % WINDOW_WIDTH/CELL_WIDTH) * CELL_WIDTH;
-        int yFoodCoordinateCandidate = (rand() % WINDOW_WIDTH/CELL_WIDTH) * CELL_WIDTH;
+        int xFoodCoordinateCandidate = food->getFoodSpawn();
+        int yFoodCoordinateCandidate = food->getFoodSpawn();
         while (true) {
             for (int i = 0; i < player->snakeLength; i++) {
                 if (player->xSnakePositions[i] == xFoodCoordinateCandidate && player->ySnakePositions[i] == yFoodCoordinateCandidate) {
-                    xFoodCoordinateCandidate = (rand() % WINDOW_WIDTH/CELL_WIDTH) * CELL_WIDTH;
-                    yFoodCoordinateCandidate = (rand() % WINDOW_WIDTH/CELL_WIDTH) * CELL_WIDTH;
+                    xFoodCoordinateCandidate = food->getFoodSpawn();
+                    yFoodCoordinateCandidate = food->getFoodSpawn();
                     i = 0;
                 }
             }

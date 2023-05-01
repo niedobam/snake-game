@@ -8,7 +8,7 @@ class food {
         SDL_Rect foodCoordinates;
 
         food();
-        void getFoodSpawn();
+        int getFoodSpawn();
 };
 
 #endif

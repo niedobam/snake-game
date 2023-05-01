@@ -13,8 +13,7 @@ food::food()
 }
 
 // Random food spawn positions
-void food::getFoodSpawn()
+int food::getFoodSpawn()
 {
-    int xFoodCoordinateCandidate = (rand() % WINDOW_WIDTH/CELL_WIDTH) * 30;
-    int yFoodCoordinateCandidate = (rand() % WINDOW_WIDTH/CELL_WIDTH) * 30;
+    return (rand() % WINDOW_WIDTH/CELL_WIDTH) * 30;
 }
