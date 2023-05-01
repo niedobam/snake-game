@@ -16,7 +16,7 @@ DEPS    := $(wildcard $(OBJ_DIR)/*.d)
 snake-game: $(OBJECTS)
 	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
-$(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+$(OBJECTS): $(shell mkdir $(OBJ_DIR)) $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $(OUTPUT_OPTION) $<
 
 clean: ; $(RM) $(DEPS) $(OBJECTS)
