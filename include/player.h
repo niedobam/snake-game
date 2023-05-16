@@ -8,9 +8,11 @@
     public:
         // SDL rect struct used for rendering a rectangle
         SDL_Rect rectangle;
+  
         // Vectors for storing snake body cells
         std::vector<int> xSnakePositions;
         std::vector<int> ySnakePositions;
+  
         // Variables for keeping track of last position of a snake
         int xPrevious;
         int yPrevious;
