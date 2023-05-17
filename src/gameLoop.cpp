@@ -1,12 +1,9 @@
 #include "gameLoop.h"
+#include "gameSettings.h"
 
 #include <SDL2/SDL.h>
 #include <string>
 #include <vector>
-
-const int CELL_WIDTH = 30;
-const int WINDOW_WIDTH = 660;
-const int WINDOW_HEIGHT = 660;
 
 gameLoop::gameLoop()
 {
@@ -17,7 +14,7 @@ gameLoop::gameLoop()
     }
 
     this->window = nullptr;
-    this->window = SDL_CreateShapedWindow("snake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+    this->window = SDL_CreateShapedWindow("snake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, settings::WINDOW_WIDTH, settings::WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 
     this->renderer = nullptr;
     this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED);
@@ -119,34 +116,34 @@ void gameLoop::updateSnakePosition(player *player, food *food)
     switch (player->direction) {
         case 'u':
             if (player->previousDirection == 'd') {
-                player->ySnakePositions[0] += CELL_WIDTH;
+                player->ySnakePositions[0] += settings::CELL_WIDTH;
                 player->direction = player->previousDirection;
             } else {
-                player->ySnakePositions[0] -= CELL_WIDTH;
+                player->ySnakePositions[0] -= settings::CELL_WIDTH;
             }
             break;
         case 'd':
             if (player->previousDirection == 'u') {
-                player->ySnakePositions[0] -= CELL_WIDTH;
+                player->ySnakePositions[0] -= settings::CELL_WIDTH;
                 player->direction = player->previousDirection;
             } else {
-                player->ySnakePositions[0] += CELL_WIDTH;
+                player->ySnakePositions[0] += settings::CELL_WIDTH;
             }
             break;
         case 'r':
             if (player->previousDirection == 'l') {
-                player->xSnakePositions[0] -= CELL_WIDTH;
+                player->xSnakePositions[0] -= settings::CELL_WIDTH;
                 player->direction = player->previousDirection;
             } else {
-                player->xSnakePositions[0] += CELL_WIDTH;
+                player->xSnakePositions[0] += settings::CELL_WIDTH;
             }
             break;
         case 'l':
             if (player->previousDirection == 'r') {
-                player->xSnakePositions[0] += CELL_WIDTH;
+                player->xSnakePositions[0] += settings::CELL_WIDTH;
                 player->direction = player->previousDirection;
             } else {
-                player->xSnakePositions[0] -= CELL_WIDTH;
+                player->xSnakePositions[0] -= settings::CELL_WIDTH;
             }
             break;
         case 's':
@@ -202,8 +199,8 @@ void gameLoop::updateWindowTitle(player *player, int *bestScore)
 // Checks if snake has collided with the window border
 void gameLoop::checkBordersCollisions(player *player, bool *isgameLoopRunning)
 {
-    bool xBoundsCondition = (player->xSnakePositions[0] > WINDOW_WIDTH - CELL_WIDTH) || (player->xSnakePositions[0] < 0);
-    bool yBoundsCondition = (player->ySnakePositions[0] > WINDOW_HEIGHT - CELL_WIDTH) || (player->ySnakePositions[0] < 0);
+    bool xBoundsCondition = (player->xSnakePositions[0] > settings::WINDOW_WIDTH - settings::CELL_WIDTH) || (player->xSnakePositions[0] < 0);
+    bool yBoundsCondition = (player->ySnakePositions[0] > settings::WINDOW_HEIGHT - settings::CELL_WIDTH) || (player->ySnakePositions[0] < 0);
 
     if (xBoundsCondition || yBoundsCondition) {
         *isgameLoopRunning = false;
@@ -232,8 +229,8 @@ void gameLoop::resetGameState(player *player, food *food)
 {
     player->rectangle.x = 0;
     player->rectangle.y = 0;
-    player->rectangle.w = CELL_WIDTH;
-    player->rectangle.h = CELL_WIDTH;
+    player->rectangle.w = settings::CELL_WIDTH;
+    player->rectangle.h = settings::CELL_WIDTH;
 
     player->xSnakePositions.clear();
     player->ySnakePositions.clear();
@@ -246,10 +243,10 @@ void gameLoop::resetGameState(player *player, food *food)
     player->direction = 's';
     player->snakeLength = 1;
 
-    food->foodCoordinates.x = WINDOW_WIDTH/2 + CELL_WIDTH;
-    food->foodCoordinates.y = WINDOW_HEIGHT/2 + CELL_WIDTH;
-    food->foodCoordinates.w = CELL_WIDTH;
-    food->foodCoordinates.h = CELL_WIDTH;
+    food->foodCoordinates.x = settings::WINDOW_WIDTH/2 + settings::CELL_WIDTH;
+    food->foodCoordinates.y = settings::WINDOW_HEIGHT/2 + settings::CELL_WIDTH;
+    food->foodCoordinates.w = settings::CELL_WIDTH;
+    food->foodCoordinates.h = settings::CELL_WIDTH;
 }
 
 // SDL cleanup

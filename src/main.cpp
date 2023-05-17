@@ -7,11 +7,7 @@
 #include "food.h"
 #include "player.h"
 #include "gameLoop.h"
-
-const int CELL_WIDTH = 30;
-const int WINDOW_WIDTH = 660;
-const int WINDOW_HEIGHT = 660;
-const int FPS = 18;
+#include "gameSettings.h"
 
 int main(int argc, char *argv[])
 {
@@ -57,8 +53,8 @@ int main(int argc, char *argv[])
 
         // Frame capping
         elapsedTime = SDL_GetTicks() - start;
-        if (elapsedTime < FPS) {
-            SDL_Delay(1000/FPS - elapsedTime);
+        if (elapsedTime < settings::FPS) {
+            SDL_Delay(1000/settings::FPS - elapsedTime);
         }
     }
 

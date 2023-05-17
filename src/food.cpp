@@ -1,19 +1,16 @@
 #include "food.h"
-
-const int CELL_WIDTH = 30;
-const int WINDOW_WIDTH = 660;
-const int WINDOW_HEIGHT = 660;
+#include "gameSettings.h"
 
 food::food()
 {
-    this->foodCoordinates.x = WINDOW_WIDTH/2 + CELL_WIDTH;
-    this->foodCoordinates.y = WINDOW_HEIGHT/2 + CELL_WIDTH;
-    this->foodCoordinates.w = CELL_WIDTH;
-    this->foodCoordinates.h = CELL_WIDTH;
+    this->foodCoordinates.x = settings::WINDOW_WIDTH/2 + settings::CELL_WIDTH;
+    this->foodCoordinates.y = settings::WINDOW_HEIGHT/2 + settings::CELL_WIDTH;
+    this->foodCoordinates.w = settings::CELL_WIDTH;
+    this->foodCoordinates.h = settings::CELL_WIDTH;
 }
 
 // Random food spawn positions
 int food::getFoodSpawn()
 {
-    return (rand() % WINDOW_WIDTH/CELL_WIDTH) * 30;
+    return (rand() % settings::WINDOW_WIDTH/settings::CELL_WIDTH) * 30;
 }
