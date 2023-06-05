@@ -3,7 +3,7 @@
 
 
 ## General Information
-This was written as a project for a university course - Object Orienter Programming, at VUT Brno. It is a simple snake game.
+This was written as a project for a university course - Object Orienter Programming at VUT Brno. It is a simple snake game.
 
 Written in C++ utilizing SDL2 software development library.
 
