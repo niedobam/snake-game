@@ -63,7 +63,7 @@ void gameLoop::renderPlayer(player *player)
    's' -> snake is stationary - gameLoop is paused */
 void gameLoop::evaluateUserInput(player *player, bool *isgameLoopRunning, bool *exitgameLoop)
 {
-    for(this->event; SDL_PollEvent(&this->event); ) {
+    for(; SDL_PollEvent(&this->event);) {
         if (this->event.type == SDL_QUIT || this->event.key.keysym.sym == SDLK_q) {
             *isgameLoopRunning = false;
             *exitgameLoop = true;
